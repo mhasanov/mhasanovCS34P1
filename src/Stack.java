@@ -10,22 +10,20 @@ public class Stack {
 
     
     
-    public void push(LinkedList ll) {
-        // TODO Auto-generated method stub
-        
-    }
+    
 
     /*
      * Number of elements in it
      */
     public int size() {
-        // TODO Auto-generated method stub
         return 0;
     }
 
-    public Link pop() {
-        // TODO Auto-generated method stub
+    public Object pop() {
         return null;
+    }
+    public void push(Object o) {
+        
     }
 
 

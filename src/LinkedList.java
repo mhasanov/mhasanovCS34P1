@@ -1,5 +1,5 @@
 
-public class LinkedList<T> {
+public class LinkedList {
 
     
     

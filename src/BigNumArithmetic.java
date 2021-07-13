@@ -57,11 +57,6 @@ public class BigNumArithmetic {
         printCalculations(inputFilePath);
     }
     
-    
-    
-    
-    
-
     /**
      * Handles reading file, and writing output.
      * Calls helper for help with calculating expression
@@ -73,10 +68,12 @@ public class BigNumArithmetic {
         Scanner scanIn = new Scanner(new File(filepath));
         while (scanIn.hasNextLine()) {
             String line = scanIn.nextLine();
+            
             //Line is blank ? skip
             if (line == "") {
                 continue;
             }
+            
             //Print the line
             System.out.println("Input Line: " + line);
             System.out.print(" = ");
@@ -86,9 +83,8 @@ public class BigNumArithmetic {
         }
         scanIn.close();
             
-    } 
-            
-           
+    }
+    
     /**
      * Reads the expression and passes each part to other functions
      * 
@@ -100,13 +96,23 @@ public class BigNumArithmetic {
         //Break line in parts
         String[] words = line.split(" ");
         
-        
         //For each part of expression
         for (int i = 0; i < words.length; i++) {
             String word = words[i];
+            
             //If a number
             if (word.matches("[0-9]+")) {
                 char[] splitZero = stripZero(word.toCharArray());
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 //_________________________________________________________
                 //_________________________________________________________
                 /*
@@ -116,8 +122,23 @@ public class BigNumArithmetic {
                  * ***********
                  * ***********
                  */
+                
+                
+                
+                
                 //__________________________________________________________
                 //__________________________________________________________
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 
             }
             else {
@@ -130,12 +151,10 @@ public class BigNumArithmetic {
             }
         }
         
-        
-        
-        
         //When done with line        
         //Pop
-        String answer = linkedIntToString(myStack.pop());       //BOX 5/7
+        String answer = linkedIntToString(myStack.pop());
+        
         //Check if stack is empty and answer exists
         if (myStack.pop() == null && answer != null) {
             return answer;
@@ -150,10 +169,15 @@ public class BigNumArithmetic {
         /*
          * *****
          * *****            LL->String
-         * BOX 5/7
+         * BOX 2
          * *****
          * *****
          */
+        
+        
+        
+        
+        
         //__________________________________________________________
         //__________________________________________________________
         
@@ -163,6 +187,14 @@ public class BigNumArithmetic {
     
     
 
+    
+    
+    
+    
+    
+    
+    
+    
     /**
      * Strips extra zeros from number, unless number is all zeros
      * 
@@ -194,8 +226,6 @@ public class BigNumArithmetic {
         
         return r;
     }
-
-
     
     
     
@@ -203,44 +233,10 @@ public class BigNumArithmetic {
     
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    /*
+     * Determines which operation to run
+     */
     private static void operator(String word) {
-      //_________________________________________________________
-        //_________________________________________________________
-        /*
-         * ***********
-         * ***********      operator->stack.push()
-         * BLACK BOX 2
-         * ***********
-         * ***********
-         */
-        //__________________________________________________________
-        //__________________________________________________________
         if (word == "+") {
             addition();
         }
@@ -253,11 +249,10 @@ public class BigNumArithmetic {
     }
 
 
-    
-    
-    
-    
-    
+
+    private static void addition() {
+        
+    }
     
     
     private static void exponentiation() {
@@ -272,8 +267,6 @@ public class BigNumArithmetic {
     }
 
 
-    private static void addition() {
-    }
 
     
     
