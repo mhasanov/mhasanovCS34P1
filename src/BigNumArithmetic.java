@@ -30,7 +30,7 @@ import java.util.Scanner;
 
 public class BigNumArithmetic {
     
-    private static LinkedList myStack;
+    private static LinkedList<LinkedList<Integer>> myStack;
 
     /*
      * Main method ran by console comand, uses helper method
@@ -92,7 +92,7 @@ public class BigNumArithmetic {
      * @return  empty string if wrong expression, else string containing answer
      */
     private static String expressionCalculator(String line) {
-        myStack = new LinkedList();
+        myStack = new LinkedList<LinkedList<Integer>>();
         //Break line in parts
         String[] words = line.split(" ");
         
@@ -103,53 +103,18 @@ public class BigNumArithmetic {
             //If a number
             if (word.matches("[0-9]+")) {
                 char[] splitZero = stripZero(word.toCharArray());
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                //_________________________________________________________
-                //_________________________________________________________
-                /*
-                 * ***********          splitZero
-                 * ***********          char[]  ->  SLinkedList  ->  Stack.push(LinkedList)
-                 * BLACK BOX 1
-                 * ***********
-                 * ***********
-                 */
-                
                 int strLen = splitZero.length;
-                LinkedList<Integer> myLL = new LinkedList();
+                LinkedList<Integer> myLL = new LinkedList<Integer>();
                 for(int j = 0; j < strLen; j++) {
                     myLL.push(Integer.parseInt(String.valueOf(splitZero[j])));
 
                 }
                 myStack.push(myLL);
-                
-                //__________________________________________________________
-                //__________________________________________________________
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
             }
             else {
                 //If operator run function, but only if stack has more than 1
                 //otherwise we skip to next line w/continue;
-                if (myStack.size() < 2) {
+                if (myStack.getSize() < 2) {
                     return "";
                 }
                 operator(word);
@@ -158,44 +123,15 @@ public class BigNumArithmetic {
         
         //When done with line        
         //Pop
-        String answer = linkedIntToString(myStack.pop());
+        LinkedList<Integer> answer = myStack.pop();
+        String s = answer.toString();
         
         //Check if stack is empty and answer exists
         if (myStack.pop() == null && answer != null) {
-            return answer;
+            return s;
         }
         return "";
     }
-
-    
-    
-    private static String linkedIntToString(Object obj) {
-        //_________________________________________________________
-        //_________________________________________________________
-        /*
-         * *****
-         * *****            LL->String
-         * BOX 2
-         * *****
-         * *****
-         */
-        
-        //__________________________________________________________
-        //__________________________________________________________
-        
-        return "";
-    }
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
     
     /**
      * Strips extra zeros from number, unless number is all zeros
@@ -227,20 +163,14 @@ public class BigNumArithmetic {
         System.arraycopy(original, zeros, r, 0, r.length);
         
         return r;
-    }
-    
-    
-    
-    
-    
-    
+    }    
     
     /*
      * Determines which operation to run
      */
     private static void operator(String word) {
         if (word == "+") {
-            addition();
+            addition(myStack.pop(), myStack.pop());
         }
         else if (word == "*") {
             multiplication();
@@ -250,15 +180,13 @@ public class BigNumArithmetic {
         }
     }
 
+    
+    
+    private static void addition(LinkedList<Integer> LL1, LinkedList<Integer> LL2) {
 
-
-    private static void addition() {
+        int upperBound = Math.max(LL1.getSize(), LL2.getSize());
         
-        LinkedList LL1 = (LinkedList)myStack.pop();
-        LinkedList LL2 = (LinkedList)myStack.pop();
-        int upperBound = Math.max(LL1.size(), LL2.size());
-        
-        LinkedList LL3 = new LinkedList();
+        LinkedList<Integer>  LL3 = new LinkedList<Integer>();
         int result = 0;
         int cary = 0;
         for (int i = 0; i < upperBound; i++) {
@@ -286,7 +214,6 @@ public class BigNumArithmetic {
         }
         myStack.push(LL3);
     }
-    
     
     private static void exponentiation() {
         
