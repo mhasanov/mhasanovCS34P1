@@ -1,4 +1,3 @@
- 
 /**
  *  LinkedList class that defines the data structure.
  *  Used to organize the characters into LinkedList format.
@@ -92,6 +91,7 @@ public class LinkedList<T> {
     public int getSize() {
         return this.size;
     }
+
     /**
      * Returns the data of the tail node
      * @return T The data of the tail node
@@ -100,18 +100,18 @@ public class LinkedList<T> {
       return tail.data;
     }
     
-/**
-*  Node class that defines the methods and fields that are used to
-*  create the LinkedList
-*  @param generic type node
-*
-*  @author mhasanov, leohan95
-*  @version 2021. 7. 15.
-*/
+    /**
+    *  Node class that defines the methods and fields that are used to
+    *  create the LinkedList
+    *  @param generic type node
+    *
+    *  @author mhasanov, leohan95
+    *  @version 2021. 7. 15.
+    */
 public class Node<T> {
         private T data;
         private Node<T> next;
-  
+        
         /**
          * The default constructor when no parameter is given
          */
@@ -119,7 +119,7 @@ public class Node<T> {
             this.data = null; 
             this.next = null;  
         }
-  
+        
         /**
          * Constructor to create a new node with the data and the next node
          * @param a The data stored in the node
@@ -146,6 +146,7 @@ public class Node<T> {
             this.data = data;
         }
         
+
         /**
          * The setter method that sets the  value of this node's data
          * @return Node<T> Returns the next node.
