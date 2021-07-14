@@ -4,16 +4,9 @@ private Node<T> Head;
     private int size = 0;
     
     /**
-     * Adds a new node in the LL.
+     * Adds a new node to LL.
      * 
-     * If the LL's firstNode is null, then the first pushed node becomes
-     * the firstNode.
-     * 
-     * If the LL's firstNode is NOT null, then the pushed node goes all the way
-     * to the back of the list and added to the end.
-     * 
-     * The size is incremented once when this method is run successfully.
-     * @param value
+     * @param value Value to be added
      */
     public void push(T value) {
         Head = new Node<T>(value, Head);
