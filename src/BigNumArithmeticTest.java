@@ -28,7 +28,7 @@ public class BigNumArithmeticTest extends TestCase {
       LL.push(3);
       assertEquals(LL.toString(), "321");  
       }
-}
+
   public void testGet() {
       LL.push(1);
       LL.push(2);
@@ -44,5 +44,19 @@ public class BigNumArithmeticTest extends TestCase {
       LL.push(3);
       assertEquals(LL.getSize(), 3);
   }
+  
+  /**
+     * Test method that tests the peek() in LinkedList
+     * Compares return value and expected value
+     */
+    public void testPeek() {
+        LL.push(3);
+        assertEquals(lstack.peek(), 3);
+        LL = new LinkedList<Integer>();
+        assertEquals(lstack.peek(), null);
+    }
+}
 
+  
+    
 
