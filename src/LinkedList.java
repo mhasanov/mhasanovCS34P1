@@ -53,8 +53,8 @@ private Node<T> firstNode;
             System.out.println(size);
         }
         else {
-            Node<T> temp = new Node<T>();
-            Node<T> temp2 = new Node<T>();
+            Node<T> temp;
+            Node<T> temp2;
             temp = firstNode;
             while(temp.next != null) {
                 if( (temp.next).next == null ) { 
