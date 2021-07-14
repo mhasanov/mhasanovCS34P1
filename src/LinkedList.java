@@ -64,6 +64,7 @@ private Node<T> firstNode;
             } //exits the loop when temp is the last node in the List
             
             temp2.next = null; //set temp2 as the new last node
+            size--;
             return temp;
             
             
