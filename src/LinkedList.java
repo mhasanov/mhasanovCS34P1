@@ -41,6 +41,7 @@ public class LinkedList<T> {
         for (int i=size-1; i > 0; i--) {
              ans += get(i).data.toString();
         }
+        return ans;
     }
     
     
