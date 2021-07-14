@@ -170,7 +170,7 @@ public class BigNumArithmetic {
      */
     private static void operator(String word) {
         if (word == "+") {
-            addition(myStack.pop(), myStack.pop());
+            myStack.push(addition(myStack.pop(), myStack.pop()));
         }
         else if (word == "*") {
             multiplication();
@@ -182,7 +182,7 @@ public class BigNumArithmetic {
 
     
     
-    private static void addition(LinkedList<Integer> LL1, LinkedList<Integer> LL2) {
+    public static LinkedList<Integer> addition(LinkedList<Integer> LL1, LinkedList<Integer> LL2) {
 
         int upperBound = Math.max(LL1.getSize(), LL2.getSize());
         
@@ -191,39 +191,43 @@ public class BigNumArithmetic {
         int cary = 0;
         for (int i = 0; i < upperBound; i++) {
             
-            Object a = LL1.get(i);
-            Object b = LL2.get(i);
             
-            if (a.equals(null) && b.equals(null)) {
+            
+            int a, b;
+            
+            if (upperBound < i) {
                 break;
             }
-            else if (a.equals(null)) {
+            if (LL1.getSize() < i) {
                 a = 0;
             }
-            else if (b.equals(null)) {
+            else {
+                a = LL1.get(i).getData();
+            }
+            if (LL2.getSize() < i) {
                 b = 0;
             }
+            else {
+                b = LL2.get(i).getData();
+            }
             
-            result = ((int)a + (int)b + cary) % 10;
-            cary = ((int)a + (int)b + cary) / 10;
+            result = (a + b + cary) % 10;
+            cary = (a + b + cary) / 10;
             
             LL3.push(result);
         }
         if (cary == 1) {
             LL3.push(cary);
         }
-        myStack.push(LL3);
+        return LL3;
     }
     
-    private static void exponentiation() {
-        
-        
+    public static void exponentiation() {
         
     }
 
 
-    private static void multiplication() {
-        // TODO Auto-generated method stub
+    public static void multiplication() {
         
     }
 
