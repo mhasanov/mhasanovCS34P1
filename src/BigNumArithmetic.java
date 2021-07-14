@@ -123,6 +123,14 @@ public class BigNumArithmetic {
                  * ***********
                  */
                 
+                int strLen = splitZero.length;
+                LinkedList<Integer> myLL = new LinkedList();
+                for(int j = 0; j < strLen; j++) {
+                    myLL.push(Integer.parseInt(String.valueOf(splitZero[j])));
+
+                }
+                myStack.push(myLL);
+                
                 //__________________________________________________________
                 //__________________________________________________________
                 
