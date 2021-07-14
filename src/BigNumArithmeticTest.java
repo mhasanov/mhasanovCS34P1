@@ -51,8 +51,8 @@ public class BigNumArithmeticTest extends TestCase {
       LL.push(1);
       LL.push(2);
       LL.push(3);
-      assertEquals((int)LL.get(0).data, 1);
-      assertEquals((int)LL.get(2).data, 3);
+      assertEquals((int)LL.get(0).getData(), 1);
+      assertEquals((int)LL.get(2).getData(), 3);
   }
 
   /**
