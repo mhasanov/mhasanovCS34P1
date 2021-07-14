@@ -24,7 +24,7 @@ private Node<T> firstNode;
             firstNode = newNode;
         }
         else {
-            Node<T> temp = new Node<T>();
+            Node<T> temp;
             temp = firstNode;
             while(temp.next != null) {
                 temp = temp.next;
