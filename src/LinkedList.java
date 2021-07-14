@@ -71,6 +71,10 @@ public class LinkedList<T> implements ListInterface<T> {
     public int getSize() {
         return this.size;
     }
+  
+    public void peek() {
+      return tail.data;
+    }
     
 
 public class Node<T> {
