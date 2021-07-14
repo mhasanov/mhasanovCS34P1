@@ -72,7 +72,7 @@ public class LinkedList<T> implements ListInterface<T> {
         return this.size;
     }
   
-    public void peek() {
+    public T peek() {
       return tail.data;
     }
     
