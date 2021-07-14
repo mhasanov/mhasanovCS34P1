@@ -1,17 +1,25 @@
 import student.TestCase;
 
 /**
- * @author mhasanov
+ * Test case class for BigNumArithmetic.java
+ *
+ * @author mhasanov, leohan95
  *
  */
 public class BigNumArithmeticTest extends TestCase {
 
   LinkedList<Integer> LL;
-  
+
+  /**
+   * SetUp
+   */
   public void setUp(){
     LL = new LinkedList<Integer>();
   }
-  
+
+  /**
+   * Testing push() and pop()
+   */
   public void testPushAndPop(){
         LL.push(1);
         LL.push(2);
@@ -19,24 +27,34 @@ public class BigNumArithmeticTest extends TestCase {
         assertEquals((int)LL.pop(), 3);
         assertEquals((int)LL.pop(), 2);
         assertEquals((int)LL.pop(), 1);
-        assertNull(LL.pop());
+        assertEquals(LL.pop(), null);
   }
-  
+
+  /**
+   * Testing toString()
+   */
   public void testToString() {
       LL.push(1);
       LL.push(2);
       LL.push(3);
-      assertEquals(LL.toString(), "321");  
+      assertEquals(LL.toString(), "321");
       }
 
+  /**
+   * Testing get()
+   */
   public void testGet() {
       LL.push(1);
       LL.push(2);
       LL.push(3);
-      assertEquals((int)LL.get(0).getData(), 1);
-      assertEquals((int)LL.get(2).getData(), 3);
+      assertEquals((int)LL.get(0).data, 1);
+      assertEquals((int)LL.get(2).data, 3);
+      assertEquals((int)LL.get(5).data, null);
   }
-  
+
+  /**
+   * testing getSize()
+   */
   public void testGetSize() {
       assertEquals(LL.getSize(), 0);
       LL.push(1);
@@ -44,7 +62,7 @@ public class BigNumArithmeticTest extends TestCase {
       LL.push(3);
       assertEquals(LL.getSize(), 3);
   }
-  
+
   /**
      * Test method that tests the peek() in LinkedList
      * Compares return value and expected value
@@ -55,7 +73,3 @@ public class BigNumArithmeticTest extends TestCase {
         LL = new LinkedList<Integer>();
     }
 }
-
-  
-    
-
