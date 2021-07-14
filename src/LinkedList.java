@@ -10,8 +10,6 @@ private Node<T> Head;
      */
     public void push(T value) {
         Head = new Node<T>(value, Head);
-        
-        
     }
     
     
