@@ -1,90 +1,155 @@
 
 public class LinkedList<T> implements ListInterface<T> {
-
+private Node<T> firstNode;
+    private int size = 0;
     
-   private Node firstNode;
-    private int data;
-
-    Node head;  // head of list
-
-    public void push(int new_data)
+    /**
+     * Adds a new node in the LL.
+     * 
+     * If the LL's firstNode is null, then the first pushed node becomes
+     * the firstNode.
+     * 
+     * If the LL's firstNode is NOT null, then the pushed node goes all the way
+     * to the back of the list and added to the end.
+     * 
+     * The size is incremented once when this method is run successfully.
+     * @param value
+     */
+    public void push(T value)
     {
-        /* 1 & 2: Allocate the Node &
-                  Put in the data*/
-        Node new_node = new Node(new_data);
-     
-        /* 3. Make next of new Node as head */
-        new_node.next = head;
-     
-        /* 4. Move the head to point to new Node */
-        head = new_node;
-    }
-    
-
-    /* This function is in LinkedList class.
-    Inserts a new node after the given prev_node. This method is
-    defined inside LinkedList class shown above */
-    public void insertAfter(Node prev_node, int new_data)
-    {
-        /* 1. Check if the given Node is null */
-        if (prev_node == null)
-        {
-            System.out.println("The given previous node cannot be null");
-            return;
+        Node<T> newNode = new Node<T>();
+        newNode.data = value;
+        
+        if(firstNode == null) {
+            firstNode = newNode;
         }
-     
-        /* 2. Allocate the Node &
-        3. Put in the data*/
-        Node new_node = new Node(new_data);
-     
-        /* 4. Make next of new Node as next of prev_node */
-        new_node.next = prev_node.next;
-     
-        /* 5. make next of prev_node as new_node */
-        prev_node.next = new_node;
+        else {
+            Node<T> temp = new Node<T>();
+            temp = firstNode;
+            while(temp.next != null) {
+                temp = temp.next;
+            } //exits the loop when temp is the last node in the List
+            temp.next = newNode;
+        }
+        size++;
     }
     
-    /* Appends a new node at the end.  This method is
-    defined inside LinkedList class shown above */
- public void append(int new_data)
- {
-     /* 1. Allocate the Node &
-        2. Put in the data
-        3. Set next as null */
-     Node new_node = new Node(new_data);
-  
-     /* 4. If the Linked List is empty, then make the
-            new node as head */
-     if (head == null)
-     {
-         head = new Node(new_data);
-         return;
-     }
-  
-     /* 4. This new node is going to be the last node, so
-          make next of it as null */
-     new_node.next = null;
-  
-     /* 5. Else traverse till the last node */
-     Node last = head;
-     while (last.next != null)
-         last = last.next;
-  
-     /* 6. Change the next of last node */
-     last.next = new_node;
-     return;
- }
- 
-     /* This function prints contents of linked list starting from
-     the given node */
-    public void printList()
-    {
-     Node tnode = head;
-     while (tnode != null)
-     {
-         System.out.print(tnode.data+" ");
-         tnode = tnode.next;
-     }
+    
+    
+    /** 
+     * Returns and deletes the last node.
+     * 
+     * Searches for the last and the second to the last node,
+     * naming temp and temp2 respectively.
+     * 
+     * returns temp for being the last node,
+     * and temp2 becomes the new last node.
+     * 
+     */
+    public Node<T> pop() {
+        if(this.size <= 0) {
+            System.out.println("There is no node to pop\n");
+            System.out.println("Current number of nodes:");
+            System.out.println(size);
+        }
+        else {
+            Node<T> temp = new Node<T>();
+            Node<T> temp2 = new Node<T>();
+            temp = firstNode;
+            while(temp.next != null) {
+                if( (temp.next).next == null ) { 
+                    temp2 = temp; //temp2 will be the new last node.
+                }
+                temp = temp.next;
+            } //exits the loop when temp is the last node in the List
+            
+            temp2.next = null; //set temp2 as the new last node
+            return temp;
+            
+            
+        }
+    }
+    
+    /**
+     * 
+     * @param prev_node
+     * @param new_data
+     */
+    public String stringPut() {
+        
+    }
+    
+    /**
+     * 
+     * @param i
+     * @return
+     */
+    public Node<T> get(int i) {
+        Node<T> temp = new Node<T>();
+        temp = firstNode;
+        
+        if(i > size) {
+            System.out.println("Check the getter input\n");
+        }
+        else {
+            for (int c = 1; c < i; c++) {
+                temp = temp.next;
+            }
+            System.out.println("\nThe data of this node:");
+            System.out.println(temp.data);
+            System.out.println("\nThe index of this node:");
+            System.out.println(i);
+            
+            return temp;
+        }
+    }
+    
+    public int getSize() {
+        return this.size;
+    }
+    
+
+public class Node<T> {
+        private T data;
+        private Node<T> next;
+        
+        Node() {
+            this.data = null; 
+            this.next = null;  
+        }
+        
+        // Constructor to create a new node with the data and 
+        Node(T a, Node<T> next) {
+            data = a; 
+            this.next = null;  
+        }
+        
+        // Constructor to create a new node without the data
+        Node(Node<T> next) {
+            this.next = next;  
+            data = null;
+        }
+        
+        //getter method that returns the data value of this node's data.
+        private T getData(Node<T> node) {
+            return node.data;
+        }
+        
+        //setter method that sets the  value of this node's data
+        private void setData(T data) {
+            this.data = data;
+        }
+        
+        // getter method that returns the next node of this node
+        private Node<T> getNext() {
+            return this.next;
+        }
+        
+        // setter method that defines the pointer that points to the next node.
+        private void setNext(Node<T> next) {
+            this.next = next;
+        }
+        
     }
 
 }
