@@ -1,7 +1,6 @@
 
 public class LinkedList<T> implements ListInterface<T> {
-    
-    private Node<T> tail;
+private Node<T> Head;
     private int size = 0;
     
     /**
@@ -10,8 +9,7 @@ public class LinkedList<T> implements ListInterface<T> {
      * @param value Value to be added
      */
     public void push(T value) {
-        tail = new Node<T>(value, tail);
-        size++;
+        Head = new Node<T>(value, Head);
     }
     
     
@@ -27,44 +25,49 @@ public class LinkedList<T> implements ListInterface<T> {
      * 
      */
     public T pop() {
-        T value = tail.data;
-        tail = tail.next
-        size--;
+        T value = Head.data;
+        Head = Head.next
         return value;
     }
     
     /**
-     * Return the List as a string of elements contained seperated by spaces.
      * 
      * @param prev_node
      * @param new_data
      */
     public String toString() {
-        
+        String ans = "";
+        for (int i=size-1; i > 0; i--) {
+             ans += get(i).data.toString();
     }
     
+    
+    
+    
     /**
-     * Returns the Node at the index 
-     * Returns null if out of bounds 
-     *
+     * 
      * @param i
      * @return
      */
-    public Node<T> get(int index) {
-        Node<T> temp = tail;
+    public Node<T> get(int i) {
+        Node<T> temp = new Node<T>();
+        temp = firstNode;
         
         if(i > size) {
-            temp = null;
+            System.out.println("Check the getter input\n");
         }
         else {
-            for (int i = size - 1; i > index; i--) {
+            for (int c = 1; c < i; c++) {
                 temp = temp.next;
             }
+            System.out.println("\nThe data of this node:");
+            System.out.println(temp.data);
+            System.out.println("\nThe index of this node:");
+            System.out.println(i);
+            
+            return temp;
         }
-        
-        return temp;
     }
-    
     
     public int getSize() {
         return this.size;
