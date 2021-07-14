@@ -29,3 +29,20 @@ public class BigNumArithmeticTest extends TestCase {
       assertEquals(LL.toString(), "321");  
       }
 }
+  public void testGet() {
+      LL.push(1);
+      LL.push(2);
+      LL.push(3);
+      assertEquals(LL.get(0).data, 1);
+      assertEquals(LL.get(2).data, 3);
+      assertEquals(LL.get(5).data, null);
+  }
+  
+  public void testGetSize() {
+      LL.push(1);
+      LL.push(2);
+      LL.push(3);
+      assertEquals(LL.getSize(), 3);
+  }
+
+
