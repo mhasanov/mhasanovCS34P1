@@ -51,9 +51,9 @@ public class BigNumArithmeticTest extends TestCase {
      */
     public void testPeek() {
         LL.push(3);
-        assertEquals(lstack.peek(), 3);
+        assertEquals(LL.peek(), 3);
         LL = new LinkedList<Integer>();
-        assertEquals(lstack.peek(), null);
+        assertEquals(LL.peek(), null);
     }
 }
 
