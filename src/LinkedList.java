@@ -1,25 +1,24 @@
 
 public class LinkedList<T> implements ListInterface<T> {
-    
-    private Node<T> Head;
-    private int size;
-    
-    /**
-     * LinkedList constructor
-     * sets the fields to initial values
-     */
-    public LinkedList<T>(){
-        Head = null;
-        size = 0;
-    }
+private Node<T> Head;
+    private int size = 0;
     
     /**
-     * Adds a new node to LL.
+     * Adds a new node in the LL.
      * 
-     * @param value Value to be pushed
+     * If the LL's firstNode is null, then the first pushed node becomes
+     * the firstNode.
+     * 
+     * If the LL's firstNode is NOT null, then the pushed node goes all the way
+     * to the back of the list and added to the end.
+     * 
+     * The size is incremented once when this method is run successfully.
+     * @param value
      */
     public void push(T value) {
         Head = new Node<T>(value, Head);
+        
+        
     }
     
     
@@ -34,18 +33,12 @@ public class LinkedList<T> implements ListInterface<T> {
      * and temp2 becomes the new last node.
      * 
      */
-    public Node<T> pop() {
-            
-        }
+    public T pop() {
+        T value = Head.data;
+        Head = Head.next
+        return value;
     }
     
-
-
-
-
-
-
-
     /**
      * 
      * @param prev_node
@@ -65,12 +58,16 @@ public class LinkedList<T> implements ListInterface<T> {
         temp = firstNode;
         
         if(i > size) {
-            
+            System.out.println("Check the getter input\n");
         }
         else {
             for (int c = 1; c < i; c++) {
                 temp = temp.next;
             }
+            System.out.println("\nThe data of this node:");
+            System.out.println(temp.data);
+            System.out.println("\nThe index of this node:");
+            System.out.println(i);
             
             return temp;
         }
