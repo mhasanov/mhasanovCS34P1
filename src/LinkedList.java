@@ -28,7 +28,7 @@ public class LinkedList<T> implements ListInterface<T> {
      */
     public T pop() {
         T value = tail.data;
-        tail = tail.next
+        tail = tail.next;
         size--;
         return value;
     }
@@ -54,7 +54,7 @@ public class LinkedList<T> implements ListInterface<T> {
     public Node<T> get(int index) {
         Node<T> temp = tail;
         
-        if(i > size) {
+        if(index > size) {
             temp = null;
         }
         else {
