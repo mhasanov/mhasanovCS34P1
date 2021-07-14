@@ -1,6 +1,7 @@
 
 public class LinkedList<T> implements ListInterface<T> {
-private Node<T> Head;
+    
+    private Node<T> tail;
     private int size = 0;
     
     /**
@@ -9,7 +10,8 @@ private Node<T> Head;
      * @param value Value to be added
      */
     public void push(T value) {
-        Head = new Node<T>(value, Head);
+        tail = new Node<T>(value, tail);
+        size++;
     }
     
     
@@ -25,8 +27,9 @@ private Node<T> Head;
      * 
      */
     public T pop() {
-        T value = Head.data;
-        Head = Head.next
+        T value = tail.data;
+        tail = tail.next
+        size--;
         return value;
     }
     
@@ -40,33 +43,28 @@ private Node<T> Head;
         
     }
     
-    
-    
-    
     /**
-     * 
+     * Returns the Node at the index 
+     * Returns null if out of bounds 
+     *
      * @param i
      * @return
      */
-    public Node<T> get(int i) {
-        Node<T> temp = new Node<T>();
-        temp = firstNode;
+    public Node<T> get(int index) {
+        Node<T> temp = tail;
         
         if(i > size) {
-            System.out.println("Check the getter input\n");
+            temp = null;
         }
         else {
-            for (int c = 1; c < i; c++) {
+            for (int i = size - 1; i > index; i--) {
                 temp = temp.next;
             }
-            System.out.println("\nThe data of this node:");
-            System.out.println(temp.data);
-            System.out.println("\nThe index of this node:");
-            System.out.println(i);
-            
-            return temp;
         }
+        
+        return temp;
     }
+    
     
     public int getSize() {
         return this.size;
