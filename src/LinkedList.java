@@ -1,6 +1,6 @@
 
 public class LinkedList<T> implements ListInterface<T> {
-private Node<T> firstNode;
+private Node<T> Head;
     private int size = 0;
     
     /**
@@ -15,23 +15,8 @@ private Node<T> firstNode;
      * The size is incremented once when this method is run successfully.
      * @param value
      */
-    public void push(T value)
-    {
-        Node<T> newNode = new Node<T>();
-        newNode.data = value;
-        
-        if(firstNode == null) {
-            firstNode = newNode;
-        }
-        else {
-            Node<T> temp;
-            temp = firstNode;
-            while(temp.next != null) {
-                temp = temp.next;
-            } //exits the loop when temp is the last node in the List
-            temp.next = newNode;
-        }
-        size++;
+    public void push(T value) {
+        Head = new Node<T>(value, Head);
     }
     
     
@@ -47,26 +32,6 @@ private Node<T> firstNode;
      * 
      */
     public Node<T> pop() {
-        if(this.size <= 0) {
-            System.out.println("There is no node to pop\n");
-            System.out.println("Current number of nodes:");
-            System.out.println(size);
-        }
-        else {
-            Node<T> temp;
-            Node<T> temp2;
-            temp = firstNode;
-            while(temp.next != null) {
-                if( (temp.next).next == null ) { 
-                    temp2 = temp; //temp2 will be the new last node.
-                }
-                temp = temp.next;
-            } //exits the loop when temp is the last node in the List
-            
-            temp2.next = null; //set temp2 as the new last node
-            size--;
-            return temp;
-            
             
         }
     }
