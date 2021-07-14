@@ -12,8 +12,14 @@ public class BigNumArithmeticTest extends TestCase {
     LL = new LinkedList<Integer>();
   }
   
-  public void testLinkedList(){
-    
+  public void testPushAndPop(){
+        LL.push(1);
+        LL.push(2);
+        LL.push(3);
+        assertEquals(LL.pop(), 3);
+        assertEquals(LL.pop(), 2);
+        assertEquals(LL.pop(), 1);
+        assertEquals(LL.pop(), null);
   }
   
 }
