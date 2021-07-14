@@ -1,7 +1,13 @@
 
 public class LinkedList<T> implements ListInterface<T> {
-private Node<T> Head;
-    private int size = 0;
+    
+    private Node<T> Head;
+    private int size;
+    
+    public LinkedList<T>(){
+        Head = null;
+        size = 0;
+    }
     
     /**
      * Adds a new node in the LL.
