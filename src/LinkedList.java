@@ -31,6 +31,7 @@ private Node<T> Head;
     }
     
     /**
+     * Return the List as a string of elements contained seperated by spaces.
      * 
      * @param prev_node
      * @param new_data
