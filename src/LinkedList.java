@@ -35,9 +35,12 @@ private Node<T> Head;
      * @param prev_node
      * @param new_data
      */
-    public String stringPut() {
+    public String toString() {
         
     }
+    
+    
+    
     
     /**
      * 
