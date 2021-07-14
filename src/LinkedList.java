@@ -2,7 +2,12 @@
 public class LinkedList<T> {
     
     private Node<T> tail;
-    private int size = 0;
+    private int size;
+    
+    public LinkedList(){
+        tail = null;
+        size = 0;
+    }
     
     /**
      * Adds a new node to LL.
@@ -10,7 +15,8 @@ public class LinkedList<T> {
      * @param value Value to be added
      */
     public void push(T value) {
-        tail = new Node<T>(value, tail);
+        Node <T> temp = tail;
+        tail = new Node<T>(value, temp);
         size++;
     }
     
@@ -27,8 +33,14 @@ public class LinkedList<T> {
      * 
      */
     public T pop() {
-        T value = tail.data;
-        tail = tail.next;
+        Node <T> temp = tail;
+        if (tail == null) {
+            return null;
+        }
+        tail = tail.getNext();
+        
+        T value = temp.getData();
+        
         size--;
         return value;
     }
@@ -38,7 +50,7 @@ public class LinkedList<T> {
      */
     public String toString() {
         String ans = "";
-        for (int i=size-1; i > 0; i--) {
+        for (int i=size-1; i >= 0; i--) {
              ans += get(i).data.toString();
         }
         return ans;
@@ -47,8 +59,7 @@ public class LinkedList<T> {
     
     
     /**
-     * Returns the Node at the index 
-     * Returns null if out of bounds 
+     * Returns the Node at the index
      *
      * @param i
      * @return
@@ -56,13 +67,8 @@ public class LinkedList<T> {
     public Node<T> get(int index) {
         Node<T> temp = tail;
         
-        if(index > size) {
-            temp = null;
-        }
-        else {
-            for (int i = size - 1; i > index; i--) {
-                temp = temp.next;
-            }
+        for (int i = size - 1; i > index; i--) {
+            temp = temp.next;
         }
         
         return temp;
@@ -90,18 +96,12 @@ public class Node<T> {
         // Constructor to create a new node with the data and 
         Node(T a, Node<T> next) {
             data = a; 
-            this.next = null;  
-        }
-        
-        // Constructor to create a new node without the data
-        Node(Node<T> next) {
             this.next = next;  
-            data = null;
         }
         
         //getter method that returns the data value of this node's data.
-        private T getData(Node<T> node) {
-            return node.data;
+        public T getData() {
+            return data;
         }
         
         //setter method that sets the  value of this node's data
@@ -110,7 +110,7 @@ public class Node<T> {
         }
         
         // getter method that returns the next node of this node
-        private Node<T> getNext() {
+        public Node<T> getNext() {
             return this.next;
         }
         
