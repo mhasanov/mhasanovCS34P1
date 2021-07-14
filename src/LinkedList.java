@@ -1,5 +1,5 @@
   
-public class LinkedList<T> implements ListInterface<T> {
+public class LinkedList<T> {
     
     private Node<T> tail;
     private int size = 0;
