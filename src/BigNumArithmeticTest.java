@@ -16,9 +16,9 @@ public class BigNumArithmeticTest extends TestCase {
         LL.push(1);
         LL.push(2);
         LL.push(3);
-        assertEquals(LL.pop(), 3);
-        assertEquals(LL.pop(), 2);
-        assertEquals(LL.pop(), 1);
+        assertEquals((int)LL.pop(), 3);
+        assertEquals((int)LL.pop(), 2);
+        assertEquals((int)LL.pop(), 1);
         assertEquals(LL.pop(), null);
   }
   
@@ -33,12 +33,13 @@ public class BigNumArithmeticTest extends TestCase {
       LL.push(1);
       LL.push(2);
       LL.push(3);
-      assertEquals(LL.get(0).data, 1);
-      assertEquals(LL.get(2).data, 3);
-      assertEquals(LL.get(5).data, null);
+      assertEquals((int)LL.get(0).data, 1);
+      assertEquals((int)LL.get(2).data, 3);
+      assertEquals((int)LL.get(5).data, null);
   }
   
   public void testGetSize() {
+      assertEquals(LL.getSize(), 0);
       LL.push(1);
       LL.push(2);
       LL.push(3);
@@ -51,7 +52,7 @@ public class BigNumArithmeticTest extends TestCase {
      */
     public void testPeek() {
         LL.push(3);
-        assertEquals(LL.peek(), 3);
+        assertEquals((int)LL.peek(), 3);
         LL = new LinkedList<Integer>();
         assertEquals(LL.peek(), null);
     }
