@@ -30,7 +30,7 @@ import java.util.Scanner;
 
 public class BigNumArithmetic {
     
-    private static Stack myStack;
+    private static LinkedList myStack;
 
     /*
      * Main method ran by console comand, uses helper method
@@ -92,7 +92,7 @@ public class BigNumArithmetic {
      * @return  empty string if wrong expression, else string containing answer
      */
     private static String expressionCalculator(String line) {
-        myStack = new Stack();
+        myStack = new LinkedList();
         //Break line in parts
         String[] words = line.split(" ");
         
@@ -117,14 +117,11 @@ public class BigNumArithmetic {
                 //_________________________________________________________
                 /*
                  * ***********          splitZero
-                 * ***********          char[]  ->  LinkedList  ->  Stack.push(LinkedList)
+                 * ***********          char[]  ->  SLinkedList  ->  Stack.push(LinkedList)
                  * BLACK BOX 1
                  * ***********
                  * ***********
                  */
-                
-                
-                
                 
                 //__________________________________________________________
                 //__________________________________________________________
@@ -163,6 +160,7 @@ public class BigNumArithmetic {
     }
 
     
+    
     private static String linkedIntToString(Object obj) {
         //_________________________________________________________
         //_________________________________________________________
@@ -173,10 +171,6 @@ public class BigNumArithmetic {
          * *****
          * *****
          */
-        
-        
-        
-        
         
         //__________________________________________________________
         //__________________________________________________________
@@ -252,11 +246,43 @@ public class BigNumArithmetic {
 
     private static void addition() {
         
+        LinkedList LL1 = (LinkedList)myStack.pop();
+        LinkedList LL2 = (LinkedList)myStack.pop();
+        int upperBound = Math.max(LL1.size(), LL2.size());
+        
+        LinkedList LL3 = new LinkedList();
+        int result = 0;
+        int cary = 0;
+        for (int i = 0; i < upperBound; i++) {
+            
+            Object a = LL1.get(i);
+            Object b = LL2.get(i);
+            
+            if (a.equals(null) && b.equals(null)) {
+                break;
+            }
+            else if (a.equals(null)) {
+                a = 0;
+            }
+            else if (b.equals(null)) {
+                b = 0;
+            }
+            
+            result = ((int)a + (int)b + cary) % 10;
+            cary = ((int)a + (int)b + cary) / 10;
+            
+            LL3.push(result);
+        }
+        if (cary == 1) {
+            LL3.push(cary);
+        }
+        myStack.push(LL3);
     }
     
     
     private static void exponentiation() {
-        // TODO Auto-generated method stub
+        
+        
         
     }
 
