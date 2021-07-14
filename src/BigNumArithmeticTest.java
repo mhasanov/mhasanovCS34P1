@@ -22,4 +22,10 @@ public class BigNumArithmeticTest extends TestCase {
         assertEquals(LL.pop(), null);
   }
   
+  public void testToString() {
+      LL.push(1);
+      LL.push(2);
+      LL.push(3);
+      assertEquals(LL.toString(), "321");  
+      }
 }
