@@ -70,15 +70,15 @@ public class BigNumArithmetic {
             String line = scanIn.nextLine();
             
             //Line is blank ? skip
-            if (line == "") {
+            if (line.trim().isEmpty()) {
                 continue;
             }
             
             //Print the line
-            System.out.println("Input Line: " + line);
+            System.out.print(line);
             System.out.print(" = ");
             String result = expressionCalculator(line);
-            System.out.print(result);
+            System.out.println(result);
             
         }
         scanIn.close();
@@ -99,7 +99,6 @@ public class BigNumArithmetic {
         //For each part of expression
         for (int i = 0; i < words.length; i++) {
             String word = words[i];
-            
             //If a number
             if (word.matches("[0-9]+")) {
                 char[] splitZero = stripZero(word.toCharArray());
@@ -111,6 +110,7 @@ public class BigNumArithmetic {
                 }
                 myStack.push(myLL);
             }
+
             else {
                 //If operator run function, but only if stack has more than 1
                 //otherwise we skip to next line w/continue;
@@ -118,16 +118,17 @@ public class BigNumArithmetic {
                     return "";
                 }
                 operator(word);
+
             }
         }
-        
+
         //When done with line        
         //Pop
         LinkedList<Integer> answer = myStack.pop();
         String s = answer.toString();
         
         //Check if stack is empty and answer exists
-        if (myStack.pop() == null && answer != null) {
+        if (myStack.getSize() == 0 && answer != null) {
             return s;
         }
         return "";
@@ -169,7 +170,8 @@ public class BigNumArithmetic {
      * Determines which operation to run
      */
     private static void operator(String word) {
-        if (word == "+") {
+
+        if (word.equals("+")) {
             myStack.push(addition(myStack.pop(), myStack.pop()));
         }
         else if (word == "*") {
