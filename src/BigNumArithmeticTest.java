@@ -115,5 +115,51 @@ public class BigNumArithmeticTest extends TestCase {
       assertEquals(LL3.toString(), LL4.toString());        
     }
 
-  
+    /**
+   * Tests Multiplication method
+   */
+  public void testMultiplication() {
+      LL.push(3);
+      LL2.push(2);
+      LinkedList<Integer> LL3 = BigNumArithmetic.multiplication(LL, LL2);
+      assertEquals(LL3.toString(), "6");
+
+      LL = new LinkedList<Integer>();
+      LL2 = new LinkedList<Integer>();
+      LL3 =new LinkedList<Integer>();
+
+      LL.push(1);
+      LL.push(2);
+
+      LL2.push(3);
+      LL2.push(4);
+
+      LL3.push(4);
+      LL3.push(0);
+      LL3.push(8);
+
+      LL = new LinkedList<Integer>();
+      LL2 = new LinkedList<Integer>();
+      LL3 =new LinkedList<Integer>();
+
+      LL.push(9);
+      LL.push(2);
+      LL.push(9);
+
+      LL2.push(9);
+      LL2.push(4);
+      LL2.push(4);
+
+      LL3.push(8);
+      LL3.push(7);
+      LL3.push(6);
+      LL3.push(9);
+      LL3.push(7);
+      LL3.push(6);
+
+
+      LinkedList<Integer> LL4 = BigNumArithmetic.multiplication(LL, LL2);
+      assertEquals(LL3.toString(), LL4.toString());
+
+  }
 }
