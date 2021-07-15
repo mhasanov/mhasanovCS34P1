@@ -228,8 +228,37 @@ public class BigNumArithmetic {
     }
 
 
-    public static void multiplication() {
-        
+    public static LinkedList<Integer> multiplication(LinkedList<Integer> LL1, LinkedList<Integer> LL2) {
+
+        LinkedList<Integer>  LL3 = new LinkedList<Integer>();
+        int aSize = LL1.getSize();
+        int bSize = LL2.getSize();
+        int result = 0;
+        int a, b;
+        int counter;
+
+        for(int i = bSize-1; i >= 0; i--) {
+            for(int j = aSize-1; j >= 0; j--) {
+                a= LL1.get(i).getData();
+                b = LL2.get(j).getData();
+
+                counter=-(i-bSize+1)+(-(j-aSize+1));
+
+                result += a*b*(int)Math.pow(10, counter);
+
+            }
+        }
+
+        String x;
+        int xlength;
+        x = String.valueOf(result);
+        xlength = x.length();
+
+        for(int i=0;i<xlength;i++) {
+            LL3.push(Integer.parseInt(String.valueOf(x.charAt(i))));
+        }
+
+        return LL3;
     }
 
 
