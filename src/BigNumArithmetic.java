@@ -187,24 +187,22 @@ public class BigNumArithmetic {
         int upperBound = Math.max(LL1.getSize(), LL2.getSize());
         
         LinkedList<Integer>  LL3 = new LinkedList<Integer>();
+        
         int result = 0;
         int cary = 0;
+        int a, b;
         for (int i = 0; i < upperBound; i++) {
-            
-            
-            
-            int a, b;
             
             if (upperBound < i) {
                 break;
             }
-            if (LL1.getSize() < i) {
+            if (LL1.getSize() <= i) {
                 a = 0;
             }
             else {
                 a = LL1.get(i).getData();
             }
-            if (LL2.getSize() < i) {
+            if (LL2.getSize() <= i) {
                 b = 0;
             }
             else {
@@ -215,6 +213,7 @@ public class BigNumArithmetic {
             cary = (a + b + cary) / 10;
             
             LL3.push(result);
+            
         }
         if (cary == 1) {
             LL3.push(cary);
