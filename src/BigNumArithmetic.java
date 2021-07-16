@@ -242,10 +242,16 @@ public class BigNumArithmetic {
                 a= LL1.get(i).getData();
                 b = LL2.get(j).getData();
 
-                counter=-(i-bSize+1)+(-(j-aSize+1));
+                System.out.println("\n the A is:");
+                System.out.println(a);
+                System.out.println("\n the B is:");
+                System.out.println(b);
+
+                counter=i+j;
 
                 result += a*b*(int)Math.pow(10, counter);
-
+                System.out.println("\n the result is:");
+                System.out.println(result);
             }
         }
 
@@ -253,9 +259,12 @@ public class BigNumArithmetic {
         int xlength;
         x = String.valueOf(result);
         xlength = x.length();
-
-        for(int i=0;i<xlength;i++) {
+        System.out.println("\n the answer x is:");
+        System.out.println(x);
+        for(int i=xlength-1;i>=0;i--) {
             LL3.push(Integer.parseInt(String.valueOf(x.charAt(i))));
+            System.out.println("\n the pushed value is:");
+            System.out.println(Integer.parseInt(String.valueOf(x.charAt(i))));
         }
 
         return LL3;
