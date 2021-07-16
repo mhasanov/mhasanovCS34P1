@@ -231,33 +231,40 @@ public class BigNumArithmetic {
     public static LinkedList<Integer> multiplication(LinkedList<Integer> LL1, LinkedList<Integer> LL2) {
 
         LinkedList<Integer>  LL3 = new LinkedList<Integer>();
+        LinkedList<Integer>  LL4;
+        LL3.push(0);
+
         int aSize = LL1.getSize();
         int bSize = LL2.getSize();
-        int result = 0;
         int a, b;
-        int counter;
+        int carry = 0;
+        int pushed;
 
-        for(int i = bSize-1; i >= 0; i--) {
-            for(int j = aSize-1; j >= 0; j--) {
-                a= LL1.get(i).getData();
-                b = LL2.get(j).getData();
-
-                counter=i+j;
-
-                result += a*b*(int)Math.pow(10, counter);
+        for(int i = 0; i <= aSize-1; i++) {
+            LL4 = new LinkedList<Integer>();
+            for(int z = 0; z < i; z++) {
+                if(i>0) {LL4.push(0);}
             }
+
+            for(int j = 0; j <= bSize-1; j++) {
+                b= LL1.get(i).getData();
+                a = LL2.get(j).getData();
+
+                pushed = (a*b+carry)% 10;
+                carry = (a*b+carry)/10;
+
+                LL4.push(pushed);
+
+                if(j==bSize-1) {
+                    if(carry != 0) {
+                        LL4.push(carry);
+                    }
+                    carry = 0;
+                }
+
+            }
+            LL3 = BigNumArithmetic.addition(LL3, LL4);
         }
-
-        String x;
-        int xlength;
-        x = String.valueOf(result);
-        xlength = x.length();
-
-        for(int i=xlength-1;i>=0;i--) {
-            LL3.push(Integer.parseInt(String.valueOf(x.charAt(i))));
-
-        }
-
         return LL3;
     }
 
