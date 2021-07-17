@@ -223,7 +223,10 @@ public class BigNumArithmetic {
         return LL3;
     }
     
-    public static LinkedList<Integer> exponentiation(LinkedList<Integer> LL1, LinkedList<Integer> LL2) {
+    public static LinkedList<Integer> exponentiation(LinkedList<Integer> LL2, LinkedList<Integer> LL1) {
+        
+
+        
         LinkedList<Integer>  LL3 = new LinkedList<Integer>();
         LinkedList<Integer>  LL4 = new LinkedList<Integer>();
         LinkedList<Integer>  temp = new LinkedList<Integer>();
@@ -286,6 +289,47 @@ public class BigNumArithmetic {
             }
         }
        return LL3;
+    }
+
+
+    public static LinkedList<Integer> multiplication(LinkedList<Integer> LL1, LinkedList<Integer> LL2) {
+
+        LinkedList<Integer>  LL3 = new LinkedList<Integer>();
+        LinkedList<Integer>  LL4;
+        LL3.push(0);
+
+        int aSize = LL1.getSize();
+        int bSize = LL2.getSize();
+        int a, b;
+        int carry = 0;
+        int pushed;
+
+        for(int i = 0; i <= aSize-1; i++) {
+            LL4 = new LinkedList<Integer>();
+            for(int z = 0; z < i; z++) {
+                if(i>0) {LL4.push(0);}
+            }
+
+            for(int j = 0; j <= bSize-1; j++) {
+                b= LL1.get(i).getData();
+                a = LL2.get(j).getData();
+
+                pushed = (a*b+carry)% 10;
+                carry = (a*b+carry)/10;
+
+                LL4.push(pushed);
+
+                if(j==bSize-1) {
+                    if(carry != 0) {
+                        LL4.push(carry);
+                    }
+                    carry = 0;
+                }
+
+            }
+            LL3 = BigNumArithmetic.addition(LL3, LL4);
+        }
+        return LL3;
     }
 
 
