@@ -75,15 +75,20 @@ public class BigNumArithmetic {
             }
             
             //Print the line
-            System.out.print(line);
-            System.out.print(" = ");
+
+            line = line.trim();
+            
+            String[] words = line.split("\\s+");
+            for (int i = 0; i < words.length; i++) {
+                System.out.print(words[i] + " ");
+            }
+            System.out.print("= ");
             String result = expressionCalculator(line);
             System.out.println(result);
-            
         }
         scanIn.close();
-            
     }
+
     
     /**
      * Reads the expression and passes each part to other functions
@@ -94,13 +99,14 @@ public class BigNumArithmetic {
     private static String expressionCalculator(String line) {
         myStack = new LinkedList<LinkedList<Integer>>();
         //Break line in parts
-        String[] words = line.split(" ");
+        String[] words = line.split("\\s+");
         
 
         //For each part of expression
         for (int i = 0; i < words.length; i++) {
 
             String word = words[i];
+            
             //If a number
             if (word.matches("[0-9]+")) {
                 char[] splitZero = stripZero(word.toCharArray());
