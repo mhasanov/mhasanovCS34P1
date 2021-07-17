@@ -20,6 +20,16 @@ public class BigNumArithmeticTest extends TestCase {
     LL2 = new LinkedList<Integer>();
   }
 
+  
+  /**
+   * Tests against SampleInput file
+   * @throws FileNotFoundException
+   */
+  public void testMain() throws FileNotFoundException {
+      String[] s = new String[1];
+      s[0] = "src/SampleInput.txt";
+      BigNumArithmetic.main(s);
+  }
 
   /**
    * Testing push() and pop()
