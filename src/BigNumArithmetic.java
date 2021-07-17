@@ -223,8 +223,69 @@ public class BigNumArithmetic {
         return LL3;
     }
     
-    public static void exponentiation() {
-        
+    public static LinkedList<Integer> exponentiation(LinkedList<Integer> LL1, LinkedList<Integer> LL2) {
+        LinkedList<Integer>  LL3 = new LinkedList<Integer>();
+        LinkedList<Integer>  LL4 = new LinkedList<Integer>();
+        LinkedList<Integer>  temp = new LinkedList<Integer>();
+        boolean num = false; //TRUE for odd, FALSE for even
+
+        int bSize = LL2.getSize();
+        int n = 0;
+
+        if(LL2.get(bSize-1).getData() % 2 == 1) { //if n is odd
+            num = true;
+        }
+        if(num) { //if n is odd
+
+            for(int i=0; i < bSize; i++) { //LL3 = n-1
+                if(i == 0) {
+                    LL3.push(LL2.get(i).getData() - 1);
+                }
+                else {
+                    LL3.push(LL2.get(i).getData());
+                }
+
+            }
+            for(int j=0; j < bSize; j++) { //(n-1)/2
+                LL4.push((int)Math.floor(LL3.get(j).getData()/2));
+            }
+
+            for(int k=0; k < LL4.getSize(); k++){
+                n += LL4.get(k).getData() * Math.pow(10, k);
+
+            }
+
+
+            LL3 = new LinkedList<Integer>(); //Reset LL3 to reuse for x^2
+            LL3 = BigNumArithmetic.multiplication(LL1, LL1); //LL3 = x^2
+            temp = LL3;
+
+            for(int x=0; x < n-1; x++) {
+                LL3 = BigNumArithmetic.multiplication(LL3, temp);
+
+            }
+
+            LL3 = BigNumArithmetic.multiplication(LL3, LL1);//x(x^2)
+        }
+        else {
+
+            for(int j=0; j < bSize; j++) { //(n-1)/2
+                LL4.push((int)Math.floor(LL2.get(j).getData()/2));
+            }
+
+            for(int k=0; k < LL4.getSize(); k++){
+                n += LL4.get(k).getData() * Math.pow(10, k);
+            }
+
+            LL3 = new LinkedList<Integer>(); //Reset LL3 to reuse for x^2
+            LL3 = BigNumArithmetic.multiplication(LL1, LL1); //LL3 = x^2
+            temp = LL3;
+
+            for(int x=0; x < n-1; x++) {
+                LL3 = BigNumArithmetic.multiplication(LL3, temp);
+            }
+        }
+       return LL3;
     }
 
 
