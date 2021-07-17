@@ -114,6 +114,44 @@ public class BigNumArithmeticTest extends TestCase {
       LL3.push(5);
       assertEquals(LL3.toString(), LL4.toString());        
     }
+ /**
+   * Tests Exponentiation method
+   */
+      public void testExponentiation() {
+      LL.push(2);
+      LL2.push(5);
+      LinkedList<Integer> LL3 = BigNumArithmetic.exponentiation(LL, LL2);
+      assertEquals(LL3.toString(), "32");
+
+      LL = new LinkedList<Integer>();
+      LL2 = new LinkedList<Integer>();
+      LL3 =new LinkedList<Integer>();
+
+      LL.push(3);
+      LL2.push(17);
+      LL3 = BigNumArithmetic.exponentiation(LL, LL2);
+      assertEquals(LL3.toString(), "129140163");
+
+      LL = new LinkedList<Integer>();
+      LL2 = new LinkedList<Integer>();
+      LL3 =new LinkedList<Integer>();
+
+      LL.push(3);
+      LL2.push(16);
+      LL3 = BigNumArithmetic.exponentiation(LL, LL2);
+      assertEquals(LL3.toString(), "43046721");
+
+      LL = new LinkedList<Integer>();
+      LL2 = new LinkedList<Integer>();
+      LL3 =new LinkedList<Integer>();
+
+      LL.push(6);
+      LL2.push(20);
+      LL3 = BigNumArithmetic.exponentiation(LL, LL2);
+      assertEquals(LL3.toString(), "3656158440062976");
+
+
+  }
 
     /**
    * Tests Multiplication method
