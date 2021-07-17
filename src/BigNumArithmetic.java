@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * 
- * @author mhasanov
+ * @author mhasanov, leohan95
  *
  */
 
@@ -223,10 +223,15 @@ public class BigNumArithmetic {
         return LL3;
     }
     
+    /**
+     * Processes the exponentiation using the exponentiation by squaring algorithm.
+     * x^n will be calculated differently depending on whether n is even or odd.
+     *
+     * @param LL2 the x variable
+     *        LL1 the n variable
+     * @return  LL3 returning LinkedList output variable to x^n
+     */
     public static LinkedList<Integer> exponentiation(LinkedList<Integer> LL2, LinkedList<Integer> LL1) {
-        
-
-        
         LinkedList<Integer>  LL3 = new LinkedList<Integer>();
         LinkedList<Integer>  LL4 = new LinkedList<Integer>();
         LinkedList<Integer>  temp = new LinkedList<Integer>();
@@ -234,6 +239,15 @@ public class BigNumArithmetic {
 
         int bSize = LL2.getSize();
         int n = 0;
+
+        if(bSize == 1 && LL2.get(bSize-1).getData() == 1) { //if n is 1, return x
+            return LL1;
+        }
+
+        if(bSize == 1 && LL2.get(bSize-1).getData() == 0) { //if n is 0, return 1
+            LL3.push(1);
+            return LL3;
+        }
 
         if(LL2.get(bSize-1).getData() % 2 == 1) { //if n is odd
             num = true;
