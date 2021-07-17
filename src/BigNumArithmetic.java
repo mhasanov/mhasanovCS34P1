@@ -96,22 +96,26 @@ public class BigNumArithmetic {
         //Break line in parts
         String[] words = line.split(" ");
         
+
         //For each part of expression
         for (int i = 0; i < words.length; i++) {
+
             String word = words[i];
             //If a number
             if (word.matches("[0-9]+")) {
                 char[] splitZero = stripZero(word.toCharArray());
+
                 int strLen = splitZero.length;
                 LinkedList<Integer> myLL = new LinkedList<Integer>();
-                for(int j = 0; j < strLen; j++) {
+                for(int j = strLen-1 ; j >= 0; j--) {
                     myLL.push(Integer.parseInt(String.valueOf(splitZero[j])));
 
                 }
                 myStack.push(myLL);
-            }
 
-            else {
+            }
+            
+            else if (word.equals("+") || word.equals("*") || word.equals("^")) {
                 //If operator run function, but only if stack has more than 1
                 //otherwise we skip to next line w/continue;
                 if (myStack.getSize() < 2) {
@@ -133,6 +137,7 @@ public class BigNumArithmetic {
         }
         return "";
     }
+
     
     /**
      * Strips extra zeros from number, unless number is all zeros
@@ -171,16 +176,20 @@ public class BigNumArithmetic {
      */
     private static void operator(String word) {
 
+
         if (word.equals("+")) {
             myStack.push(addition(myStack.pop(), myStack.pop()));
         }
-        else if (word == "*") {
-            multiplication();
+        else if (word.equals("*")) {
+
+
+            myStack.push(multiplication(myStack.pop(), myStack.pop()));
         }
-        else if (word == "^") {
-            exponentiation();
+        else if (word.equals("^")) {
+            myStack.push(exponentiation(myStack.pop(), myStack.pop()));
         }
     }
+
 
     
     
