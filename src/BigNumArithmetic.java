@@ -316,9 +316,10 @@ public class BigNumArithmetic {
 
 
     public static LinkedList<Integer> multiplication(LinkedList<Integer> LL1, LinkedList<Integer> LL2) {
+{
 
-        LinkedList<Integer>  LL3 = new LinkedList<Integer>();
-        LinkedList<Integer>  LL4;
+        LinkedList<Integer> LL3 = new LinkedList<Integer>();
+        LinkedList<Integer> LL4;
         LL3.push(0);
 
         int aSize = LL1.getSize();
@@ -327,23 +328,37 @@ public class BigNumArithmetic {
         int carry = 0;
         int pushed;
 
-        for(int i = 0; i <= aSize-1; i++) {
+        if ((aSize == 1 && LL2.get(0).getData() == 0)
+            || (bSize == 1 && LL2.get(0).getData() == 0))
+        {
+            return LL3;
+        }
+
+        for (int i = 0; i <= aSize - 1; i++)
+        {
             LL4 = new LinkedList<Integer>();
-            for(int z = 0; z < i; z++) {
-                if(i>0) {LL4.push(0);}
+            for (int z = 0; z < i; z++)
+            {
+                if (i > 0)
+                {
+                    LL4.push(0);
+                }
             }
 
-            for(int j = 0; j <= bSize-1; j++) {
-                b= LL1.get(i).getData();
+            for (int j = 0; j <= bSize - 1; j++)
+            {
+                b = LL1.get(i).getData();
                 a = LL2.get(j).getData();
 
-                pushed = (a*b+carry)% 10;
-                carry = (a*b+carry)/10;
+                pushed = (a * b + carry) % 10;
+                carry = (a * b + carry) / 10;
 
                 LL4.push(pushed);
 
-                if(j==bSize-1) {
-                    if(carry != 0) {
+                if (j == bSize - 1)
+                {
+                    if (carry != 0)
+                    {
                         LL4.push(carry);
                     }
                     carry = 0;
