@@ -175,123 +175,127 @@ public class BigNumArithmeticTest extends TestCase {
    * Tests Multiplication method
    */
   public void testMultiplication() {
+{
 
-      LL.push(2);
-      LL2.push(0);
-      LinkedList<Integer> LL3 = BigNumArithmetic.multiplication(LL, LL2);
-      assertEquals(LL3.toString(), "0");
+        LL.push(2);
+        LL2.push(0);
+        LinkedList<Integer> LL3 = BigNumArithmetic.multiplication(LL, LL2);
+        assertEquals(LL3.toString(), "0");
 
-      LL = new LinkedList<Integer>();
-      LL2 = new LinkedList<Integer>();
-      LL3 =new LinkedList<Integer>();
+        LL = new LinkedList<Integer>();
+        LL2 = new LinkedList<Integer>();
+        LL3 = new LinkedList<Integer>();
 
-      LL.push(2);
-      LL2.push(2);
-      LL3 = BigNumArithmetic.multiplication(LL, LL2);
-      assertEquals(LL3.toString(), "4");
+        LL.push(2);
+        LL2.push(2);
+        LL3 = BigNumArithmetic.multiplication(LL, LL2);
+        assertEquals(LL3.toString(), "4");
 
+        LL = new LinkedList<Integer>();
+        LL2 = new LinkedList<Integer>();
+        LL3 = new LinkedList<Integer>();
 
-      LL = new LinkedList<Integer>();
-      LL2 = new LinkedList<Integer>();
-      LL3 =new LinkedList<Integer>();
-      LL.push(1);
-      LL.push(2);
+        LL.push(999999);
+        LL2.push(0);
+        LL3 = BigNumArithmetic.multiplication(LL, LL2);
+        assertEquals(LL3.toString(), "0");
 
-      LL2.push(3);
-      LL2.push(4);
+        LL = new LinkedList<Integer>();
+        LL2 = new LinkedList<Integer>();
+        LL3 = new LinkedList<Integer>();
 
-      LL3.push(3);
-      LL3.push(0);
-      LL3.push(9);
-      LinkedList<Integer> LL4 = BigNumArithmetic.multiplication(LL, LL2);
-      assertEquals(LL3.toString(), LL4.toString());
+        LL = new LinkedList<Integer>();
+        LL2 = new LinkedList<Integer>();
+        LL3 = new LinkedList<Integer>();
+        LL.push(1);
+        LL.push(2);
 
-      LL = new LinkedList<Integer>();
-      LL2 = new LinkedList<Integer>();
-      LL3 =new LinkedList<Integer>();
+        LL2.push(3);
+        LL2.push(4);
 
-      LL.push(9);
-      LL.push(9);
-      LL.push(9);
+        LL3.push(3);
+        LL3.push(0);
+        LL3.push(9);
+        LinkedList<Integer> LL4 = BigNumArithmetic.multiplication(LL, LL2);
+        assertEquals(LL3.toString(), LL4.toString());
 
-      LL2.push(9);
-      LL2.push(9);
-      LL2.push(9);
+        LL = new LinkedList<Integer>();
+        LL2 = new LinkedList<Integer>();
+        LL3 = new LinkedList<Integer>();
 
-      LL3.push(1);
-      LL3.push(0);
-      LL3.push(0);
-      LL3.push(8);
-      LL3.push(9);
-      LL3.push(9);
+        LL.push(9);
+        LL.push(9);
+        LL.push(9);
 
+        LL2.push(9);
+        LL2.push(9);
+        LL2.push(9);
 
-      LL4 = BigNumArithmetic.multiplication(LL, LL2);
-      assertEquals(LL3.toString(), LL4.toString());
+        LL3.push(1);
+        LL3.push(0);
+        LL3.push(0);
+        LL3.push(8);
+        LL3.push(9);
+        LL3.push(9);
 
-      LL = new LinkedList<Integer>();
-      LL2 = new LinkedList<Integer>();
-      LL3 =new LinkedList<Integer>();
+        LL4 = BigNumArithmetic.multiplication(LL, LL2);
+        assertEquals(LL3.toString(), LL4.toString());
 
-      LL.push(9);
-      LL.push(9);
-      LL.push(9);
-      LL.push(9);
-      LL.push(9);
+        LL = new LinkedList<Integer>();
+        LL2 = new LinkedList<Integer>();
+        LL3 = new LinkedList<Integer>();
 
-      LL2.push(9);
-      LL2.push(9);
-      LL2.push(9);
-      LL2.push(9);
-      LL2.push(9);
+        LL.push(9);
+        LL.push(9);
+        LL.push(9);
+        LL.push(9);
+        LL.push(9);
 
-      LL3.push(1);
-      LL3.push(0);
-      LL3.push(0);
-      LL3.push(0);
-      LL3.push(0);
-      LL3.push(8);
-      LL3.push(9);
-      LL3.push(9);
-      LL3.push(9);
-      LL3.push(9);
+        LL2.push(9);
+        LL2.push(9);
+        LL2.push(9);
+        LL2.push(9);
+        LL2.push(9);
 
+        LL3.push(1);
+        LL3.push(0);
+        LL3.push(0);
+        LL3.push(0);
+        LL3.push(0);
+        LL3.push(8);
+        LL3.push(9);
+        LL3.push(9);
+        LL3.push(9);
+        LL3.push(9);
 
-      LL4 = BigNumArithmetic.multiplication(LL, LL2);
-      assertEquals(LL3.toString(), LL4.toString());
+        LL4 = BigNumArithmetic.multiplication(LL, LL2);
+        assertEquals(LL3.toString(), LL4.toString());
 
-      LL = new LinkedList<Integer>();
-      LL2 = new LinkedList<Integer>();
-      LL3 =new LinkedList<Integer>();
-      LL.push(1);
-      LL.push(2);
+        LL = new LinkedList<Integer>();
+        LL2 = new LinkedList<Integer>();
+        LL3 = new LinkedList<Integer>();
+        LL.push(1);
+        LL.push(2);
 
-      LL2.push(3);
-      LL2.push(4);
-      LL3.push(3);
-      LL3.push(0);
-      LL3.push(9);
-      LL4 = BigNumArithmetic.multiplication(LL, LL2);
-      assertEquals(LL3.toString(), LL4.toString());
+        LL2.push(3);
+        LL2.push(4);
+        LL3.push(3);
+        LL3.push(0);
+        LL3.push(9);
+        LL4 = BigNumArithmetic.multiplication(LL, LL2);
+        assertEquals(LL3.toString(), LL4.toString());
 
+        LL2.push(4);
+        // 21 * 443 = 9303, not 9093*
+        LL3 = new LinkedList<Integer>();
+        LL3.push(3);
+        LL3.push(0);
+        LL3.push(3);
+        LL3.push(9);
+        LL4 = BigNumArithmetic.multiplication(LL, LL2);
 
-      LL2.push(4);
-      //21 * 443 = 9303, not 9093*
-      LL3 =new LinkedList<Integer>();
-      LL3.push(3);
-      LL3.push(0);
-      LL3.push(3);
-      LL3.push(9);
-      LL4 = BigNumArithmetic.multiplication(LL, LL2);
+        assertEquals(LL3.toString(), LL4.toString());
 
-      System.out.println(LL.toString());
-
-      System.out.println(LL2.toString());
-      System.out.println(LL3.toString());
-      System.out.println(LL4.toString());
-      assertEquals(LL3.toString(), LL4.toString());
-
-  }
-
+    }
 
 }
